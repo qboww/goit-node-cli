@@ -1,9 +1,7 @@
 // contacts.js
 
-/*
- * Розкоментуй і запиши значення
- * const contactsPath = ;
- */
+// Розкоментуй і запиши значення
+const contactsPath = ;
 
 async function listContacts() {
   // ...твій код. Повертає масив контактів.
