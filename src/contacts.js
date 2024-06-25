@@ -31,7 +31,7 @@ export const getContactById = async (contactId) => {
       return null;
     }
 
-    console.log(contactToFind);
+    console.log(`Contact with ID ${contactId} was found. \n ${contactToFind}`);
     return contactToFind;
   } catch (error) {
     console.error(`Error while fetching contact by ID ${contactId}: ${error}`);
