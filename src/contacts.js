@@ -51,11 +51,7 @@ export const removeContact = async (contactId) => {
     }
 
     const filteredList = contactsList.filter((c) => c.id !== contactId);
-    await fs.writeFile(
-      contactsPath,
-      JSON.stringify(filteredList, null, 2),
-      "utf-8"
-    );
+    await fs.writeFile(contactsPath, JSON.stringify(filteredList, null, 2), "utf-8");
 
     console.log(`Contact with ID ${contactId} removed successfully.`);
     return contactToRemove;
@@ -69,9 +65,7 @@ export const removeContact = async (contactId) => {
 export const addContact = async (name, email, phone) => {
   try {
     if (!name || !email || !phone) {
-      console.log(
-        "Please provide name, email and phone to create new contact!"
-      );
+      console.log("Please provide name, email and phone to create new contact!");
       return null;
     }
 
@@ -79,13 +73,11 @@ export const addContact = async (name, email, phone) => {
     const newContact = { id: nanoid(), name, email, phone };
     contactsList.push(newContact);
 
-    await fs.writeFile(
-      contactsPath,
-      JSON.stringify(contactsList, null, 2),
-      "utf-8"
-    );
+    await fs.writeFile(contactsPath, JSON.stringify(contactsList, null, 2), "utf-8");
 
-    console.log(newContact);
+    console.log(
+      `Contact added successfully:\n${JSON.stringify(newContact, null, 2)}`
+    );
     return newContact;
   } catch (error) {
     console.error(`Error adding new contact: ${error}`);
