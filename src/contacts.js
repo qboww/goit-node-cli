@@ -31,7 +31,8 @@ export const getContactById = async (contactId) => {
       return null;
     }
 
-    console.log(`Contact with ID ${contactId} was found. \n ${contactToFind}`);
+    console.log(`Contact with ID ${contactId} was found.`);
+    console.log(contactToFind);
     return contactToFind;
   } catch (error) {
     console.error(`Error while fetching contact by ID ${contactId}: ${error}`);
@@ -54,6 +55,7 @@ export const removeContact = async (contactId) => {
     await fs.writeFile(contactsPath, JSON.stringify(filteredList, null, 2), "utf-8");
 
     console.log(`Contact with ID ${contactId} removed successfully.`);
+    console.log(contactToRemove);
     return contactToRemove;
   } catch (error) {
     console.error(`Error removing contact with ID ${contactId}: ${error}`);
@@ -75,9 +77,8 @@ export const addContact = async (name, email, phone) => {
 
     await fs.writeFile(contactsPath, JSON.stringify(contactsList, null, 2), "utf-8");
 
-    console.log(
-      `Contact added successfully:\n${JSON.stringify(newContact, null, 2)}`
-    );
+    console.log(`Contact with ID ${newContact.id} was added successfully.`);
+    console.log(newContact);
     return newContact;
   } catch (error) {
     console.error(`Error adding new contact: ${error}`);
